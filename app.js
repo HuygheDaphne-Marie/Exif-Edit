@@ -11,8 +11,7 @@ class ImageOverwriter extends EventEmitter {
     // Read all files in the root dir
     this.emit('reading', {dir, status: 'started'});
     const files = await reader.readDirectory(dir);
-    this.emit('done reading', {dir, status: 'done', files});
-    
+    this.emit('done reading', {dir, status: 'done', files});    
 
     // Filter so only allowed extentions remain
     const images = files.filter(file => allowedExts.includes(path.extname(file)))
@@ -23,16 +22,6 @@ class ImageOverwriter extends EventEmitter {
     images.forEach(image => {
       overwriter.overwrite(image, data.artist || '', data.copyright || '', data.description || '');
     });
-
-    // So dirty even Gordon Ramsey would run screaming
-    // let posistion = 0;
-    // let inter = setInterval(() => {
-    //   overwriter.overwrite(images[posistion], data.artist || '', data.copyright || '', data.description || '');
-    //   posistion++;
-    //   if(posistion > images.length) {
-    //     clearInterval(inter);
-    //   }
-    // }, 1000)
 
     overwriter.on('image done', () => {
       imagesLeft--;
