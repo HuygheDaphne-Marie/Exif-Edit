@@ -12,7 +12,6 @@ class ExifOverwriter extends EventEmitter {
         Copyright: copyright,
         ImageDescription: description,
       }, ['overwrite_original']))
-      //.then(console.error, console.log)
       .then(() => ep.close())
       .then(() => this.emit('image done'))
       .catch(console.error)
