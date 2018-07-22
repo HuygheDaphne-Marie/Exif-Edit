@@ -1,4 +1,4 @@
-const ExifOverwriter = require('./ExifOverwriter');
+const ExifOverwriter = require('./exifOverwriter');
 const DirectoryReader = require('./directoryReader');
 const EventEmitter = require('events');
 const path = require('path');
