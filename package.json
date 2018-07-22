@@ -1,0 +1,15 @@
+{
+  "name": "exif-edit",
+  "version": "1.0.0",
+  "description": "Tool to edit exif metadata from images.",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "Henri-Thibault Huyghe",
+  "license": "ISC",
+  "dependencies": {
+    "dist-exiftool": "^10.53.0",
+    "node-exiftool": "^2.3.0"
+  }
+}
