@@ -1,10 +1,9 @@
 const EventEmitter = require('events');
 const exiftool = require('node-exiftool');
-const exiftoolBin = require('dist-exiftool');
-const ep = new exiftool.ExiftoolProcess(exiftoolBin);
 
 class ExifOverwriter extends EventEmitter {
-  async overwrite(file, artist, copyright, description) {
+  overwrite(file, artist, copyright, description) {
+    const ep = new exiftool.ExiftoolProcess('./exiftool');
     ep
       .open()
       .then(() => ep.writeMetadata(`${file}`, {
@@ -16,7 +15,7 @@ class ExifOverwriter extends EventEmitter {
       //.then(console.error, console.log)
       .then(() => ep.close())
       .then(() => this.emit('image done'))
-      //.catch(console.error)
+      .catch(console.error)
   };
 }
 

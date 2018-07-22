@@ -24,6 +24,16 @@ class ImageOverwriter extends EventEmitter {
       overwriter.overwrite(image, data.artist || '', data.copyright || '', data.description || '');
     });
 
+    // So dirty even Gordon Ramsey would run screaming
+    // let posistion = 0;
+    // let inter = setInterval(() => {
+    //   overwriter.overwrite(images[posistion], data.artist || '', data.copyright || '', data.description || '');
+    //   posistion++;
+    //   if(posistion > images.length) {
+    //     clearInterval(inter);
+    //   }
+    // }, 1000)
+
     overwriter.on('image done', () => {
       imagesLeft--;
       if(imagesLeft === 0) {
