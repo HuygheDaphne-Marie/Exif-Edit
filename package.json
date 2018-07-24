@@ -9,6 +9,9 @@
   "author": "Henri-Thibault Huyghe",
   "license": "ISC",
   "dependencies": {
-    "node-exiftool": "^2.3.0"
+    "node-exiftool": "^2.3.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "socket.io": "^2.1.1"
   }
 }

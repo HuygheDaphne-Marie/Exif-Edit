@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../partials/head %>
+  <style>
+    .form-check, .form-group {
+      margin-bottom: 30px;
+    } 
+  </style>
+</head>
+<body class="container">
+<header>
+  <% include ../partials/header %>
+</header>
+
+<main>
+  <form action="#">
+    <div class="form-group">
+      <label for="root">Path to the folder containing the images</label>
+      <input type="text" class="form-control" name="root" id="root" placeholder="C:/Users/Henri/Pictures">
+      <small class="form-text text-muted">All the images (with the extension(s) you choose) in this folder or folders inside this one will have their metadata changed. This field is required</small>
+    </div>
+
+    <p>Image types to change</p>
+    <div class="form-check form-check-inline">
+      <input type="checkbox" name="jpg" id="jpg" class="form-check-input" value=".jpg">
+      <label for="jpg" class="form-check-label">.jpg</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input type="checkbox" name="png" id="png" class="form-check-input" value=".png">
+        <label for="png" class="form-check-label">.png</label>
+      </div>
+
+    <div class="form-group">
+        <label for="artist">Artist</label>
+        <input type="text" class="form-control" name="artist" id="artist" placeholder="John Doe">
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <input type="text" class="form-control" name="description" id="description" placeholder="That's a nice picture you have there">
+    </div>
+    <div class="form-group">
+        <label for="copyright">Copyright</label>
+        <input type="text" class="form-control" name="copyright" id="copyright" placeholder="John Doe">
+    </div>
+    <input type="submit" class="btn btn-primary" value="Edit Metadata">
+  </form>
+</main>
+
+<footer>
+  <% include ../partials/footer %>
+</footer>
+</body>
+</html>
