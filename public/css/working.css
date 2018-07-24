@@ -1,49 +1,26 @@
-main#test {
+main {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
-.spinner-4::before {
-  content: '';
-  box-sizing: border-box;
-  position: absolute;
-  top: calc(50% - 30px);
-  left: calc(50% - 30px);
-  height: 60px;
-  width: 60px;
+#message {
+  margin-top: 25px;
+  font-size: 25px;
+}
+
+.spinner {
+  height: 100px;
+  width: 100px;
   border-radius: 50%;
-  border-top: 2px solid coral;
-  border-right: 2px solid transparent;
-  border-bottom: 2px solid coral;
-  border-left: 2px solid transparent;
+  border: 3px solid lightgrey;
+  border-top-color: #007bff;
   animation: spinner 0.7s linear infinite;
-}
-
-.spinner-4::after {
-  content: '';
-  box-sizing: border-box;
-  position: absolute;
-  top: calc(50% - 25px);
-  left: calc(50% - 25px);
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  border-top: 2px solid skyblue;
-  border-right: 2px solid transparent;
-  border-bottom: 2px solid skyblue;
-  border-left: 2px solid transparent;
-  animation: spinnerNegative 0.7s linear infinite;
 }
 
 @keyframes spinner {
   to {
     transform: rotate(360deg);
-  }
-}
-
-@keyframes spinnerNegative {
-  to {
-    transform: rotate(-360deg);
   }
 }

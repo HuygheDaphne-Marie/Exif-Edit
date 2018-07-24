@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+  <title>Exif Edit</title>    
+  <style>
+    #check-margin, .form-group {
+      margin-bottom: 30px;
+    } 
+  </style>
+</head>
+<body class="container">
+<header>
+  <nav class="navbar navbar-expand-lg">
+      <a class="navbar-brand" href="/">Exif Edit</a>
+      <div class="navbar-collapse collapse">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
+        </ul>
+      </div>
+    </nav>      
+</header>
+
+<main class="jumbotron">
+  <h1 class="display-4">About <span class="text-primary">Exif Edit</span></h1>
+  <p>Exif edit is a tool made by Henri-Thibault Huyghe a 2nd year applied computer science student at Howest. It aims at being an easy to use simple tool and will be expanded on in the future to allow for more tags to be edited.</p>
+
+  <h2>How does it work?</h2>
+  <p><span class="text-primary">Exif Edit</span> uses a commandline tool called exiftool in the background, and changes the metadata of every picture under the folder you specify (Also those that are in folders inside the one you specified. It runs a local expressjs server to provide you with the user interface you see now. The entire app can run offline without any issues and everything needed is installed locally one you installed it and it's packages.</p>
+</main>
+
+<footer>
+  <p class="fixed-bottom text-center text-muted">Made with <span class="text-primary" style="font-size: 20px;">&hearts;</span> by Henri-Thibault Huyghe</p>
+</footer>
+</body>
+</html>
