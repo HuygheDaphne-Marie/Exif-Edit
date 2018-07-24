@@ -3,7 +3,7 @@
 <head>
   <% include ../partials/head %>
   <style>
-    .form-check, .form-group {
+    #check-margin, .form-group {
       margin-bottom: 30px;
     } 
   </style>
@@ -14,10 +14,10 @@
 </header>
 
 <main>
-  <form action="#">
+  <form action="/edit" method="POST">
     <div class="form-group">
       <label for="root">Path to the folder containing the images</label>
-      <input type="text" class="form-control" name="root" id="root" placeholder="C:/Users/Henri/Pictures">
+      <input type="text" class="form-control" name="root" id="root" placeholder="C:/Users/Henri/Pictures" required>
       <small class="form-text text-muted">All the images (with the extension(s) you choose) in this folder or folders inside this one will have their metadata changed. This field is required</small>
     </div>
 
@@ -27,9 +27,12 @@
       <label for="jpg" class="form-check-label">.jpg</label>
     </div>
     <div class="form-check form-check-inline">
-        <input type="checkbox" name="png" id="png" class="form-check-input" value=".png">
-        <label for="png" class="form-check-label">.png</label>
-      </div>
+      <input type="checkbox" name="png" id="png" class="form-check-input" value=".png">
+      <label for="png" class="form-check-label">.png</label>
+    </div>
+    <small id="check-margin" class="form-text text-muted">Only images with this extension will be edited</small>
+    
+    
 
     <div class="form-group">
         <label for="artist">Artist</label>

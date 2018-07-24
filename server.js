@@ -1,15 +1,50 @@
 const path = require('path');
 const express = require('express');
+const { check, validationResult } = require('express-validator/check');
+const bodyParser = require('body-parser');
 const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io').listen(server);
 
 // Midleware / setup
+const urlEncodedParser = bodyParser.urlencoded({extended: false});
+app.use(express.static(path.join(__dirname, 'public')))
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+
+
 app.get('/', (req, res) => {
   res.render('pages/index');
+});
+app.get('/about', (req, res) => {
+  res.render('pages/about');
+});
+app.post('/edit', [
+  urlEncodedParser,
+  check('root', 'Path is required').isLength({min: 1})
+], (req, res) => {
+  const errors = validationResult(req);
+  if(!errors.isEmpty()) {
+    return res.status(422).json({ errors: errors.array() });
+  }
+  
+  if(req.body.jpg === undefined && req.body.png === undefined) {
+    return res.send(422, 'One of the checkboxes needs to be filled!')
+  } else {
+    const settings = {
+      types: []
+    };
+    if(req.body.jpg) settings.types.push(req.body.jpg);
+    if(req.body.png) settings.types.push(req.body.png);
+
+    for(const field in req.body) {
+      console.log(field)
+      if(req.body[field] !== '.jpg' && req.body[field] !== '.png') settings[field] = req.body[field];
+    }
+    
+    res.render('pages/working')
+  }
 });
 
 
