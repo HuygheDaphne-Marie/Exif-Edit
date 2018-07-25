@@ -1,5 +1,6 @@
 {
   "name": "exif-edit",
+  "bin": "server.js",
   "version": "1.0.0",
   "description": "Tool to edit exif metadata from images.",
   "main": "app.js",
@@ -10,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "dist-exiftool": "^10.53.0",
     "express": "^4.16.3",
     "express-validator": "^5.3.0",
     "node-exiftool": "^2.3.0",

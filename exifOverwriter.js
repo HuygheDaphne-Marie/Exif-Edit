@@ -1,5 +1,6 @@
-const EventEmitter = require('events');
 const exiftool = require('node-exiftool');
+const exiftoolBin = require('dist-exiftool');
+const ep = new exiftool.ExiftoolProcess(exiftoolBin);
 
 class ExifOverwriter extends EventEmitter {
   overwrite(file, artist, copyright, description) {
