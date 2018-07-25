@@ -31,7 +31,7 @@ app.post('/edit', [
   if(!errors.isEmpty()) {
     return res.status(422).json({ errors: errors.array() });
   }
-  
+
   if(req.body.jpg === undefined && req.body.png === undefined) {
     return res.send(422, 'One of the checkboxes needs to be filled!')
   } else {
@@ -74,5 +74,8 @@ io.sockets.on('connection', socket => {
   overwriter.on('done writing', msg => {
     // Call home and tell how many images have been processed
     io.sockets.emit('new text', {text: `All done! Changed ${msg.images.length} images their metadata, you can close this page now`});
+  });
+  overwriter.on('error', msg => {
+    io.sockets.emit('new text', {text: `There was an error while reading your files, the path '${msg.dir}' probably doesn't exsist`});
   });
 })

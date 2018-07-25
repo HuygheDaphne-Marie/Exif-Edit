@@ -9,6 +9,7 @@ document.querySelector('form').addEventListener('submit', e => {
   } else {
     $err.classList = '';
     $err.innerHTML = '';
+    document.querySelector('form').submit();
   }
 });
 
