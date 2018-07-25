@@ -62,19 +62,17 @@ io.sockets.on('connection', socket => {
 
   // Messages
   overwriter.on('reading', msg => {
-    // Tell client that we've started reading their files under the chosen directory..
     io.sockets.emit('new text', {text: `Started reading ${msg.dir}`});
   });
   overwriter.on('done reading', msg => {
-    // Tell client that we're done reading their files under the chosen directory..
+    // Call home and tell how many images are going to be processed
     io.sockets.emit('new text', {text: `Done reading files under ${msg.dir}, read ${msg.files.length} files`});
   });
   overwriter.on('writing', msg => {
-    // Tell client that we've started writing the metadata..
     io.sockets.emit('new text', {text: `Started writing files under ${msg.dir}`});
   });
   overwriter.on('done writing', msg => {
-    // Tell client work is done and that they can close the app..
+    // Call home and tell how many images have been processed
     io.sockets.emit('new text', {text: `All done! Changed ${msg.images.length} images their metadata, you can close this page now`});
   });
 })

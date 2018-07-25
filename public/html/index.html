@@ -26,7 +26,8 @@
 </header>
 
 <main>
-  <form action="/edit" method="POST">
+  <div id="err"></div>
+  <form id="test" action="/edit" method="POST">
     <div class="form-group">
       <label for="root">Path to the folder containing the images</label>
       <input type="text" class="form-control" name="root" id="root" placeholder="C:/Users/Henri/Pictures" required>
@@ -65,5 +66,6 @@
 <footer>
   <p class="fixed-bottom text-center text-muted">Made with <span class="text-primary" style="font-size: 20px;">&hearts;</span> by Henri-Thibault Huyghe</p>
 </footer>
+<script src="../js/index.js"></script>
 </body>
 </html>
