@@ -6,10 +6,10 @@ Exif Edit uses a commandline tool called exiftool in the background, and changes
 
 ## Important Enviroment Variables
 ### Server.js Variables
-*PORT* (int) local express server will listen on this, `default 5000`
-*LOGGING* (boolean) enables logging with remoteLogger.js, `default false`
+*PORT* (int) local express server will listen on this, `default 5000`<br>
+*LOGGING* (boolean) enables logging with remoteLogger.js, `default false`<br>
 ### RemoteLogger.js Variables
-*HOSTNAME* (domain OR IP) hostname or IP that remote logging messages will be sent to, `default 127.0.0.1`
-*RPORT* (int) port that logging message will be sent to, `default 5050`
+*HOSTNAME* (domain OR IP) hostname or IP that remote logging messages will be sent to, `default 127.0.0.1`<br>
+*RPORT* (int) port that logging message will be sent to, `default 5050`<br>
 ### RemoteServer.js Variables
-*LOGPORT* (int) port express server will listen on for log messages, `default 5050`
+*LOGPORT* (int) port express server will listen on for log messages, `default 5050`<br>
