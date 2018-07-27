@@ -5,11 +5,13 @@ const bodyParser = require('body-parser');
 const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io').listen(server);
+const RemoteLogger = require('./remoteLogger');
 const ImageOverwriter = require('./app');
 
 // Midleware / setup
 app.use(express.static(path.join(__dirname, 'public')))
 const urlEncodedParser = bodyParser.urlencoded({extended: false});
+const remoteLogger = new RemoteLogger(); 
 const overwriter = new ImageOverwriter();
 
 // Init
@@ -65,15 +67,15 @@ io.sockets.on('connection', socket => {
     io.sockets.emit('new text', {text: `Started reading ${msg.dir}`});
   });
   overwriter.on('done reading', msg => {
-    // Call home and tell how many images are going to be processed
-    io.sockets.emit('new text', {text: `Done reading files under ${msg.dir}, read ${msg.files.length} files`});
+    io.sockets.emit('new text', {text: `Done reading files under ${msg.dir}, read ${msg.amount} files`});
   });
   overwriter.on('writing', msg => {
+    remoteLogger.log({status: msg.status, amount: msg.amount})
     io.sockets.emit('new text', {text: `Started writing files under ${msg.dir}`});
   });
   overwriter.on('done writing', msg => {
-    // Call home and tell how many images have been processed
-    io.sockets.emit('new text', {text: `All done! Changed ${msg.images.length} images their metadata, you can close this page now`});
+    remoteLogger.log({status: msg.status, amount: msg.amount})
+    io.sockets.emit('new text', {text: `All done! Changed ${msg.amount} images their metadata, you can close this page now`});
   });
   overwriter.on('error', msg => {
     io.sockets.emit('new text', {text: `There was an error while reading your files, the path '${msg.dir}' probably doesn't exsist`});

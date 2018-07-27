@@ -28,7 +28,7 @@ class DirectoryReader {
               resolve(filesRead)
             }
           }).catch(error => {
-            console.error(error); // Can add logging here
+            console.error(error);
             reject('Something went wrong!');
           });
           
