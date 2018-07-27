@@ -5,7 +5,8 @@
   "description": "Tool to edit exif metadata from images.",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "start-remote": "nodemon remoteServer.js"
   },
   "author": "Henri-Thibault Huyghe",
   "license": "ISC",
