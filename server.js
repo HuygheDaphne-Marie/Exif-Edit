@@ -11,6 +11,7 @@ const ImageOverwriter = require('./app');
 // Midleware / setup
 app.use(express.static(path.join(__dirname, 'public')))
 const urlEncodedParser = bodyParser.urlencoded({extended: false});
+const logging = process.env.LOGGING || false;
 const remoteLogger = new RemoteLogger(); 
 const overwriter = new ImageOverwriter();
 
@@ -70,11 +71,11 @@ io.sockets.on('connection', socket => {
     io.sockets.emit('new text', {text: `Done reading files under ${msg.dir}, read ${msg.amount} files`});
   });
   overwriter.on('writing', msg => {
-    remoteLogger.log({status: msg.status, amount: msg.amount})
+    if(logging) remoteLogger.log({status: msg.status, amount: msg.amount});
     io.sockets.emit('new text', {text: `Started writing files under ${msg.dir}`});
   });
   overwriter.on('done writing', msg => {
-    remoteLogger.log({status: msg.status, amount: msg.amount})
+    if(logging) remoteLogger.log({status: msg.status, amount: msg.amount});
     io.sockets.emit('new text', {text: `All done! Changed ${msg.amount} images their metadata, you can close this page now`});
   });
   overwriter.on('error', msg => {
