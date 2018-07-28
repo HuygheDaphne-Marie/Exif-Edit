@@ -4,7 +4,7 @@ Exif edit is a tool made by Henri-Thibault Huyghe a 2nd year applied computer sc
 ## How it works
 Exif Edit uses a commandline tool called exiftool in the background, and changes the metadata of every picture under the folder you specify (Also those that are in folders inside the one you specified. It runs a local expressjs server to provide you with the user interface you see now. The entire app can run offline without any issues and everything needed is installed locally one you installed it and it's packages.
 
-## Important Enviroment Variables
+## Important Environment Variables
 ### Server.js Variables
 *PORT* (int) local express server will listen on this, `default 5000`<br>
 *LOGGING* (boolean) enables logging with remoteLogger.js, `default false`<br>
