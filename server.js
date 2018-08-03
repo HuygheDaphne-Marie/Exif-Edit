@@ -41,7 +41,10 @@ app.post('/edit', [
     const settings = {
       types: []
     };
-    if(req.body.jpg) settings.types.push(req.body.jpg);
+    if(req.body.jpg) {
+      settings.types.push(req.body.jpg);
+      settings.types.push(".jpeg");
+    } 
     if(req.body.png) settings.types.push(req.body.png);
 
     for(const field in req.body) {
