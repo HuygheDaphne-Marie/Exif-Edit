@@ -1,5 +1,5 @@
 # Exif Edit
-Exif edit is a tool made by Henri-Thibault Huyghe a 2nd year applied computer science student at Howest. It aims at being an easy to use simple tool and will be expanded on in the future to allow for more tags to be edited.
+Exif edit is a tool made by Henri-Thibault Huyghe a 2nd year applied computer science student at Howest. It aims at being an easy to use simple tool. It is free to use/adapt for anyone, no more work is being done on it as of now 
 
 ## How it works
 Exif Edit uses a commandline tool called exiftool in the background, and changes the metadata of every picture under the folder you specify (Also those that are in folders inside the one you specified. It runs a local expressjs server to provide you with the user interface you see now. The entire app can run offline without any issues and everything needed is installed locally one you installed it and it's packages.
